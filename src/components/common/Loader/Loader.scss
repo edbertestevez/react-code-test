@@ -1,0 +1,55 @@
+@import "../../../styles/mixins.scss";
+
+$size: 20px;
+$color: #7fb900;
+
+@mixin pulse-element {
+  position: absolute;
+  background-color: $color;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.root-loader {
+  @include flexbox;
+  width: 100%;
+  height: calc(#{$size} * 10);
+  justify-content: center;
+}
+
+.loader {
+  &-center {
+    @include pulse-element;
+    width: $size;
+    height: $size;
+    z-index: 2;
+  }
+
+  &-pulse,
+  &-pulse-delay {
+    @include pulse-element;
+    opacity: 0.2;
+    animation: pulse;
+    z-index: 1;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+
+  &-pulse-delay {
+    animation-delay: 0.35s;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    width: calc(#{$size} * 3);
+    height: calc(#{$size} * 3);
+    opacity: 0.25;
+  }
+  100% {
+    width: calc(#{$size} * 6);
+    height: calc(#{$size} * 6);
+    opacity: 0;
+  }
+}
