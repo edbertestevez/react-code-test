@@ -1,1 +1,1 @@
-export const LOADER_DURATION = 0;
+export const LOADER_DURATION = 3000;
