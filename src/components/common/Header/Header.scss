@@ -1,0 +1,23 @@
+@import "../../../styles/mixins.scss";
+
+$header-primary: #f1f1f1;
+
+.header {
+  &-root {
+    @include flexbox;
+    background-color: $header-primary;
+    justify-content: space-between;
+  }
+
+  &-title {
+    font-size: 20px;
+    margin: 0;
+    padding: 12px;
+    text-align: center;
+  }
+
+  &-button {
+    border: 0px;
+    cursor: pointer;
+  }
+}
