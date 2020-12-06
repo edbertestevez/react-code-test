@@ -3,13 +3,15 @@ import { LOADER_DURATION } from "../../../config/loader";
 import Header from "../../common/Header";
 import Loading from "../../common/Loader";
 import UserList from "./UserList";
+import { useDispatch } from "react-redux";
 
 export const Users: FunctionComponent = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     defaultLoader();
-  }, []);
+  }, [dispatch]);
 
   const defaultLoader = () => {
     setTimeout(() => {
@@ -21,7 +23,7 @@ export const Users: FunctionComponent = () => {
     <React.Fragment>
       <Header title={"Users"} />
 
-      <div className={"users-list"}>{isLoading ? <Loading show={true} /> : <UserList users={[]} />}</div>
+      <div className={"users-list"}>{isLoading ? <Loading show={true} /> : <UserList />}</div>
     </React.Fragment>
   );
 };

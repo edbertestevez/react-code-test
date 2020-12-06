@@ -1,16 +1,16 @@
 import React from "react";
 import { User } from "../../../types/User";
 import ListItem from "../../common/ListItem";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 
-type UserListProps = {
-  users: Array<User>;
-};
+const UserList: React.FC = () => {
+  const users: Array<User> = useSelector((state: RootState) => state.users.list);
 
-const UserList: React.FC<UserListProps> = ({ users }) => {
   return (
     <div>
       {users.map((row) => {
-        return <ListItem title={`${row.first_name} ${row.last_name}`} avatar={row.avatar} />;
+        return <ListItem id={row.id} title={`${row.first_name} ${row.last_name}`} avatar={row.avatar} />;
       })}
     </div>
   );
