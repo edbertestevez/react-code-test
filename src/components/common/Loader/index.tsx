@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import "./Loader.scss";
 
-type LoaderProps = {
+interface ILoaderProps {
   show: boolean;
-};
+}
 
-const Loader: FunctionComponent<LoaderProps> = ({ show }) => {
+const Loader: React.FC<ILoaderProps> = ({ show }) => {
   if (!show) {
     return null;
   }

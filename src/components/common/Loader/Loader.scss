@@ -31,13 +31,13 @@ $color: #7fb900;
     opacity: 0.2;
     animation: pulse;
     z-index: 1;
-    animation-duration: 3s;
+    animation-duration: 1.5s;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
   }
 
   &-pulse-delay {
-    animation-delay: 0.35s;
+    animation-delay: 0.5s;
   }
 }
 

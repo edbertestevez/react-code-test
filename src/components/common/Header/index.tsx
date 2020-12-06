@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import "./Header.scss";
 
-type HeaderProps = {
+interface IHeaderProps {
   title: string;
   showBack?: boolean;
-};
+}
 
-const Header: FunctionComponent<HeaderProps> = ({ title, showBack }) => {
+const Header: React.FC<IHeaderProps> = ({ title, showBack }) => {
   let history = useHistory();
 
   return (
