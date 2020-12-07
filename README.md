@@ -1,5 +1,4 @@
 # Ombori React Code Test
-___
 
 What the test app should do:
 
@@ -16,7 +15,10 @@ The application was built with ReactJS + Typescript for a coding exam.
   - No iOS/Mac device available to test.
   - IE11 not supported on this version.
 
+<img src="screenshots/Loader.jpg" height="400"/>
 <img src="screenshots/user-list.jpg" height="400"/>
+<img src="screenshots/end-list.jpg" height="400"/>
+<img src="screenshots/user-view.jpg" height="400"/>
 ___
 
 ## Features
@@ -46,6 +48,7 @@ npm install
 
 4. Run the application
 npm start
+```
 
 ## Folder Structure
 ```
