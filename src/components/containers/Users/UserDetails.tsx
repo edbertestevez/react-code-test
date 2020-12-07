@@ -55,7 +55,7 @@ const UserDetails: React.FC<RouteComponentProps<MatchParam>> = (props: RouteComp
 
           <span className="flex-row-align">
             <p className="user-label">Email: </p>
-            <p>{data?.last_name}</p>
+            <p>{data?.email}</p>
           </span>
         </div>
       )}
