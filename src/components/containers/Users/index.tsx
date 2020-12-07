@@ -50,7 +50,7 @@ export const Users: FunctionComponent = () => {
 
   // Bottom Scroll
   const onBottomScroll = useCallback(() => {
-    if (isScreenBottomReached() && !isEndReached) {
+    if (isScreenBottomReached(50) && !isEndReached) {
       getPaginatedUser(currPage + 1);
     }
   }, [currPage, isEndReached, getPaginatedUser]);

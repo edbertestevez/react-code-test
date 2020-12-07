@@ -7,17 +7,25 @@ $header-primary: #f1f1f1;
     @include flexbox;
     background-color: $header-primary;
     justify-content: space-between;
+    align-items: center;
   }
 
   &-title {
+    flex: 1;
     font-size: 20px;
     margin: 0;
     padding: 12px;
+    justify-content: center;
     text-align: center;
   }
 
   &-button {
     border: 0px;
     cursor: pointer;
+    position: absolute;
+    border: 1px solid #cacaca;
+    padding: 8px;
+    border-radius: 4px;
+    margin-left: 8px;
   }
 }
