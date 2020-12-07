@@ -36,7 +36,9 @@ export const Users: FunctionComponent = () => {
           setIsEndReached(true);
         }
 
-        if (page <= total_pages) {
+        if (page === 1) {
+          dispatch(userSliceActions.override(data));
+        } else if (page <= total_pages) {
           dispatch(userSliceActions.append(data));
         }
 

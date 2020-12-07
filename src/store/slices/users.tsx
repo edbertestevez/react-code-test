@@ -16,6 +16,9 @@ export const userSlice = createSlice({
     reset: (state) => {
       state.list = [];
     },
+    override: (state, action: PayloadAction<Array<User>>) => {
+      state.list = action.payload;
+    },
     append: (state, action: PayloadAction<Array<User>>) => {
       state.list.push(...action.payload);
     }

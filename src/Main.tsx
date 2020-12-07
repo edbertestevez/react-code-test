@@ -7,9 +7,6 @@ import Users from "./components/containers/Users";
 import UserDetails from "./components/containers/Users/UserDetails";
 import { AppRoutes } from "./config/routes";
 
-function Test() {
-  return <div>test</div>;
-}
 function Main() {
   return (
     <Provider store={store}>

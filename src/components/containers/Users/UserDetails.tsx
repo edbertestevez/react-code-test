@@ -26,7 +26,7 @@ const UserDetails: React.FC<RouteComponentProps<MatchParam>> = (props: RouteComp
     if (userId) {
       getUser(parseInt(userId));
     }
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <div>
@@ -36,7 +36,7 @@ const UserDetails: React.FC<RouteComponentProps<MatchParam>> = (props: RouteComp
         <Loading show={true} />
       ) : (
         <div className="user-details">
-          <img src={data?.avatar} className="user-img" />
+          <img alt={"user"} src={data?.avatar} className="user-img" />
 
           <span className="flex-row-align">
             <p className="user-label">ID: </p>
