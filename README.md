@@ -14,12 +14,12 @@ The application was built with ReactJS + Typescript for a coding exam.
       - Mobile (Android) - Chrome
   - No iOS/Mac device available to test.
   - IE11 not supported on this version.
-
-<img src="screenshots/Loader.jpg" height="400"/>
-<img src="screenshots/user-list.jpg" height="400"/>
-<img src="screenshots/end-list.jpg" height="400"/>
-<img src="screenshots/user-view.jpg" height="400"/>
-___
+<p float="left">
+  <img src="screenshots/Loader.jpg" height="400"/>
+  <img src="screenshots/user-list.jpg" height="400"/>
+  <img src="screenshots/end-list.jpg" height="400"/>
+  <img src="screenshots/user-view.jpg" height="400"/>
+</p>
 
 ## Features
   - Custom Loader
