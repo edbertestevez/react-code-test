@@ -1,13 +1,4 @@
 # Ombori React Code Test
-
-Hi there, we're really excited that you've made it this far in our interview process and look forward to getting to know you better.
-
-At Ombori, we strive to build fantastic apps using well structured and efficient code.
-The purpose of this task is to see how you solve problems and to make sure that you follow our linting rules as well as industry best practices.
-
-We've scaffolded a very basic project that will serve as your starting point for the task.
-Make sure you've got eslint integrated in your editor or run the lint task and fix any errors before submitting your code for review. If there's a rule you disagree with, you can change it but we will ask you to motivate why during our feedback session on this task.
-
 ___
 
 What the test app should do:
@@ -16,13 +7,68 @@ What the test app should do:
 * Fetch user data from https://reqres.in/
 * Display those users in a scrollable view that lazy loads more users when you've reached the bottom of the list, if there are no more users to load it should indicate that there are no more users.
 * Be responsive, look great and work well on different devices, especially various mobile screens
-
-We've prepared some screenshots in the design folder as well as a video of what the loading component should look like.
-
 ___
 
-Those are the requirements. If you wish to show off more of your skillset, feel free to expand upon the app, perhaps integrating a state management library like Redux to handle the fetching of data. Using TypeScript will be a big ➕. If you're really into functional programming, feel free to use something like Ramda. It's really up to you!
+The application was built with ReactJS + Typescript for a coding exam.
+  - Test Environments:
+      - Desktop (Windows) - Chrome, Firefox, Edge.
+      - Mobile (Android) - Chrome
+  - No iOS/Mac device available to test.
+  - IE11 not supported on this version.
 
-We put no strict requirements on how you choose to solve any of the points in this task. We only ask that you be able to motivate your choices.
+<img src="screenshots/user-list.jpg" height="400"/>
+___
 
-![You got this!](https://media.giphy.com/media/ClcWrARkrq1GM/giphy.gif)
+## Features
+  - Custom Loader
+  - Get Users List
+  - View User Details
+
+### Additional Info
+  - Typescript
+  - React Hooks
+  - Eslint + Prettier
+  - React Hooks
+  - Redux Toolkit
+  - Lodash
+  - Infinite Scrolling (Pagination)
+  - Unit Testing (Soon)
+  
+## Local Setup
+```bash
+1. Clone the repository
+
+2. Go to app directory
+cd <project path>
+
+3. Install packages
+npm install
+
+4. Run the application
+npm start
+
+## Folder Structure
+```
+project
+└───public                                  # Public react files
+└───src                                     # Main application folder
+│   └─── assets                             # Application assets like images, etc
+│   └─── config                             # Configuration files like routes, api, defaults, etc.
+│   └─── constants                          # Constants files (currently empty)
+│   └─── components                         # Application components
+│          └─── common                      # Reusable components on modules
+│          └─── containers                  # Application modules screens
+│             └─── <Module>
+│                   └─── ...<components>    # Module related components
+│   └─── store                              # Redux related directory
+│       └─── slices                         # Module reducer files
+│       └─── index.tsx                      # Main redux store definition/compiler
+│   └─── styles                             # Reusable styles
+│   └─── tests                              # App test definitions (currently not updated)
+│   └─── types                              # Type definitions
+│   └─── utils                              # Utils such as service workers, common functions, etc.
+│   └────index.tsx                          # Root application renderer
+│   └────Main.tsx                           # Main application component
+└───package.json                            # Dependencies and other app info
+└───tsconfig.json                           # Typescript environment configuration file
+```
