@@ -10,7 +10,7 @@ const UserList: React.FC = () => {
   return (
     <div>
       {users.map((row) => {
-        return <ListItem id={row.id} title={`${row.first_name} ${row.last_name}`} avatar={row.avatar} />;
+        return <ListItem key={row.id} id={row.id} title={`${row.first_name} ${row.last_name}`} avatar={row.avatar} />;
       })}
     </div>
   );

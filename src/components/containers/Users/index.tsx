@@ -1,34 +1,58 @@
 import React, { FunctionComponent, useEffect, useState, useCallback } from "react";
+import { useDispatch } from "react-redux";
 import { LOADER_DURATION } from "../../../config/loader";
+import { userSliceActions } from "../../../store/slices/users";
+import { isScreenBottomReached } from "../../../utils";
+import debounce from "lodash/debounce";
+
 import Header from "../../common/Header";
 import Loading from "../../common/Loader";
 import UserList from "./UserList";
-import { useDispatch } from "react-redux";
-import { userSliceActions } from "../../../store/slices/users";
-import Axios from "axios";
-import { USERS_BASE_URL } from "../../../config/api";
+import api from "../../../api";
+import "../../../styles/list.scss";
 
 export const Users: FunctionComponent = () => {
   const [currPage, setCurrPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [isEndReached, setIsEndReached] = useState(false);
   const dispatch = useDispatch();
 
+  //Initial Loader
   const defaultLoader = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, LOADER_DURATION);
   };
 
+  //Pagination
   const getPaginatedUser = useCallback(
-    (page: number) => {
-      Axios.get(`${USERS_BASE_URL}?page=${page}`).then((res) => {
-        dispatch(userSliceActions.append(res.data.data));
-        setCurrPage(page);
-      });
-    },
+    debounce(async (page: number) => {
+      let { data, total_pages } = await api.get_paginated_users({ page });
+      if (page === total_pages) {
+        setIsEndReached(true);
+      }
+      if (page <= total_pages) {
+        dispatch(userSliceActions.append(data));
+      }
+      setCurrPage(page);
+    }, 100),
     [dispatch]
   );
 
+  // Bottom Scroll
+  const onBottomScroll = useCallback(() => {
+    if (isScreenBottomReached() && !isEndReached) {
+      getPaginatedUser(currPage + 1);
+    }
+  }, [currPage, isEndReached, getPaginatedUser]);
+
+  // Scroll Listener
+  useEffect(() => {
+    window.addEventListener("scroll", onBottomScroll);
+    return () => window.removeEventListener("scroll", onBottomScroll);
+  }, [onBottomScroll]);
+
+  //Initial Effect
   useEffect(() => {
     defaultLoader();
     getPaginatedUser(1);
@@ -39,6 +63,8 @@ export const Users: FunctionComponent = () => {
       <Header title={"Users"} />
 
       <div className={"users-list"}>{isLoading ? <Loading show={true} /> : <UserList />}</div>
+
+      {isEndReached && <div className="list-end">No more records found</div>}
     </React.Fragment>
   );
 };
