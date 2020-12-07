@@ -27,15 +27,22 @@ export const Users: FunctionComponent = () => {
   //Pagination
   const getPaginatedUser = useCallback(
     debounce(async (page: number) => {
-      let { data, total_pages } = await api.get_paginated_users({ page });
-      if (page === total_pages) {
-        setIsEndReached(true);
+      let result = await api.get_paginated_users({ page });
+
+      if (result) {
+        let { data, total_pages } = result;
+
+        if (page === total_pages) {
+          setIsEndReached(true);
+        }
+
+        if (page <= total_pages) {
+          dispatch(userSliceActions.append(data));
+        }
+
+        setCurrPage(page);
       }
-      if (page <= total_pages) {
-        dispatch(userSliceActions.append(data));
-      }
-      setCurrPage(page);
-    }, 100),
+    }, 300),
     [dispatch]
   );
 
