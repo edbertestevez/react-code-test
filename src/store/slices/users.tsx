@@ -6,7 +6,7 @@ interface IUserSlice {
 }
 
 const initialState: IUserSlice = {
-  list: []
+  list: [],
 };
 
 export const userSlice = createSlice({
@@ -21,10 +21,10 @@ export const userSlice = createSlice({
     },
     append: (state, action: PayloadAction<Array<User>>) => {
       state.list.push(...action.payload);
-    }
-  }
+    },
+  },
 });
 
 export const userSliceActions = {
-  ...userSlice.actions
+  ...userSlice.actions,
 };

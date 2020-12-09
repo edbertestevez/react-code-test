@@ -13,7 +13,15 @@ const UserList: React.FC = () => {
   return (
     <div>
       {users.map((row) => {
-        return <ListItem onClick={() => history.push(`${AppRoutes.USER_ROOT}/${row.id}`)} key={row.id} id={row.id} title={`${row.first_name} ${row.last_name}`} avatar={row.avatar} />;
+        return (
+          <ListItem
+            onClick={() => history.push(`${AppRoutes.USER_ROOT}/${row.id}`)}
+            key={row.id}
+            id={row.id}
+            title={`${row.first_name} ${row.last_name}`}
+            avatar={row.avatar}
+          />
+        );
       })}
     </div>
   );
