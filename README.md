@@ -55,6 +55,7 @@ npm start
 project
 └───public                                  # Public react files
 └───src                                     # Main application folder
+│   └─── api                                # API requests definitions
 │   └─── assets                             # Application assets like images, etc
 │   └─── config                             # Configuration files like routes, api, defaults, etc.
 │   └─── constants                          # Constants files (currently empty)
